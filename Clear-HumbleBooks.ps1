@@ -1,4 +1,17 @@
 function Clear-HumbleBooks {
+    <#
+    .SYNOPSIS
+    just another test
+    .DESCRIPTION
+    this function should remove all my duplicate Humble Books from different Bundles
+    .EXAMPLE
+    Clear-Humblebooks
+    .PARAMETER PathToBooks
+    The Path where the duplicate files are located
+    .NOTES
+    nothing important yes
+    #>
+    
     param (
         [string]
         $PathToBooks = "C:\Users\Thilo\Documents\Bücher\HumbleBundle\"
