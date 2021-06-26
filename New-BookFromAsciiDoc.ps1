@@ -56,11 +56,11 @@ function New-BookFromAsciiDoc
     }
     process
     {
-        Set-Location ./zipped/bitcoinbook-develop/
         switch ($Book)
         {
             "BTC"
             {
+            Set-Location ./zipped/bitcoinbook-develop/
                 switch ($Medium)
                 {
                     "pdf"
@@ -73,19 +73,21 @@ function New-BookFromAsciiDoc
                     {
                         Write-Verbose "creating the epub"
                         asciidoctor-epub3 ./book.asciidoc
-                        Copy-Item ./book.epub ../../Bitcoinbook.epub
+                        Copy-Item ./book.pdf ../../Bitcoinbook.epub
                     }
                 }
             }
             "ETH"
             {
+            Set-Location ./zipped/ethereumbook-develop/
+
                 switch ($Medium)
                 {
                     "pdf"
                     {
                         Write-Verbose "creating the pdf"
                         asciidoctor-pdf ./book.asciidoc
-                        Copy-Item ./book.epub ../../Ethereumbook.pdf
+                        Copy-Item ./book.pdf ../../Ethereumbook.pdf
                     }
                     "epub"
                     {
