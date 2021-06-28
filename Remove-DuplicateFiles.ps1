@@ -20,11 +20,7 @@ function Remove-DuplicateFiles {
         [string]
         $Path = "C:\Users\Thilo\Documents\Bücher\HumbleBundle\"
     )
-    $duplicateObjects = Get-ChildItem -Path $Path -Recurse | Get-FileHash | Group-Object -Property Hash | 
-    Where-Object Count -GT 1 | ForEach-Object
-    {
-        $_.Group | Select-Object Path, Hash
-    }
+    $duplicateObjects = Get-ChildItem -Path $Path -Recurse | Get-FileHash | Group-Object -Property Hash | Where-Object Count -GT 1 | ForEach-Object{$_.Group | Select-Object Path, Hash}
     for ($i = 0; $i -lt $duplicateObjects.Count; $i++) {
         if ($i % 2) {
             Remove-Item -Path $duplicateObjects[$i].Path
