@@ -67,13 +67,13 @@ function New-BookFromAsciiDoc
                     {
                         Write-Verbose "creating the pdf"
                         asciidoctor-pdf ./book.asciidoc
-                        Copy-Item ./book.epub ../../Bitcoinbook.pdf
+                        Copy-Item ./book.pdf ../../Bitcoinbook.pdf
                     }
                     "epub"
                     {
                         Write-Verbose "creating the epub"
                         asciidoctor-epub3 ./book.asciidoc
-                        Copy-Item ./book.pdf ../../Bitcoinbook.epub
+                        Copy-Item ./book.epub ../../Bitcoinbook.epub
                     }
                 }
             }
