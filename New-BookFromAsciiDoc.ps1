@@ -3,6 +3,7 @@ function New-BookFromAsciiDoc
     <#
     .SYNOPSIS
     this function creates a human-readable file from the Github Repos of "Mastering Bitcoin" and "Mastering Ethereum"
+    Prerequisities are: asciidoctor, asciidoctor-epub3 and asciidoctor-pdf
     .DESCRIPTION
     you can create either a .pdf or an .epub-File of the Open Source Versions of the books "Mastering Bitcoin" or "Mastering Ethereum"
     the bitcoinbook-repo is a private fork, where I added some changes from open pull requests regarding formatting and wording
@@ -24,7 +25,8 @@ function New-BookFromAsciiDoc
     .NOTES
     created by: dullo-bot
     Date: 20210626
-    Tested with: MacOS 11.3; PS 7.1 BTC and epub
+    Tested with: MacOS 11.3 and PS 7.1, Win10 and PS 5.1
+    Prerequisities are: asciidoctor, asciidoctor-epub3 and asciidoctor-pdf
     #>
     param (
         [Parameter(Mandatory,Position=0)]
