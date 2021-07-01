@@ -95,7 +95,7 @@ function New-BookFromAsciiDoc
                     {
                         Write-Verbose "creating the epub"
                         asciidoctor-epub3 ./book.asciidoc
-                        Copy-Item ./book.epub ../../Ethereumbooks.epub
+                        Copy-Item ./book.epub ../../Ethereumbook.epub
                     }
                 }
             }            
