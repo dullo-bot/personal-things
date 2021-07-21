@@ -18,10 +18,10 @@ function Remove-DuplicateFiles {
     Date: 20210907
     Tested with: Win10, PS 5.1
     #>
-    
+    [CmdletBinding()]
     param (
         [string]
-        $Path = "C:\Users\bs000q18u\Documents\",
+        $Path = "C:\Users\Thilo\Documents\Bücher\HumbleBundle\",
         [switch]
         $Recurse,
         [switch]
@@ -38,7 +38,8 @@ function Remove-DuplicateFiles {
       for ($i = 0; $i -lt $duplicateObjects.Count; $i++) {
         if ($i % 2) {
             Remove-Item -Path $duplicateObjects[$i].Path
+            Write-Verbose "removing $($duplicateObjects[$i].Path)"
         }
       }
     }
-} 
+}
