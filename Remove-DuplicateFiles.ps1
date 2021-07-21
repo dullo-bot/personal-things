@@ -11,8 +11,6 @@ function Remove-DuplicateFiles {
     The Path where duplicate files are located
     .Parameter Recurse
     Decides, if you want to search in the provided Path or in its subfolders
-    .Parameter delete
-    Decide, if you want to delete the duplicate file/files
     .NOTES
     Created by: dullo-bot
     Date: 20210907
@@ -23,9 +21,7 @@ function Remove-DuplicateFiles {
         [string]
         $Path = "C:\Users\Thilo\Documents\Bücher\HumbleBundle\",
         [switch]
-        $Recurse,
-        [switch]
-        $delete 
+        $Recurse
     )
     if ($Recurse) {
       $duplicateObjects = Get-ChildItem -Path $Path -Recurse| Get-FileHash | Group-Object -Property Hash | Where-Object Count -GT 1 | ForEach-Object{$_.Group | Select-Object Path, Hash}
@@ -34,12 +30,10 @@ function Remove-DuplicateFiles {
         $duplicateObjects = Get-ChildItem -Path $Path | Get-FileHash | Group-Object -Property Hash | Where-Object Count -GT 1 | ForEach-Object{$_.Group | Select-Object Path, Hash}
     }
     $duplicateObjects
-    if ($delete) {
       for ($i = 0; $i -lt $duplicateObjects.Count; $i++) {
         if ($i % 2) {
             Remove-Item -Path $duplicateObjects[$i].Path
             Write-Verbose "removing $($duplicateObjects[$i].Path)"
         }
       }
-    }
 }
